@@ -1,14 +1,18 @@
 import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
+import usePhoneBookStore from "../stores/usePhoneBookStore";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-
+  const { addContact } = usePhoneBookStore();
   const handleAddContact = () => {
     // 연락처 추가 로직 ( 여기서의 내용을 리스트에 보여줘야 해서 이때, zustand 로 상태관리 할거임)
     // 1. 연락처 저장 장소 => 배열 : phoneBook = []
     // 2. 연락처를 추가
+    if (!name.trim() || !phoneNumber.trim()) return;
+    // 연락처 추가
+    addContact(name, phoneNumber);
   };
 
   return (
