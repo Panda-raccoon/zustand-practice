@@ -17,6 +17,7 @@ const ContactForm = () => {
 
   return (
     <Box display="flex" flexDirection="column" alignItems="center" gap={2}>
+      <h1>연락처 생성 </h1>
       <TextField
         id="name"
         label="이름"

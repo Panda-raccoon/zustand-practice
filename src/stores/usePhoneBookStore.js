@@ -6,6 +6,10 @@ const usePhoneBookStore = create((set) => ({
     set((state) => ({
       phoneBook: [...state.phoneBook, { id: Date.now(), name, phoneNumber }],
     })),
+  deleteContact: (id) =>
+    set((state) => ({
+      phoneBook: state.phoneBook.filter((contact) => contact.id !== id),
+    })),
 }));
 
 export default usePhoneBookStore;
